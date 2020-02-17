@@ -35,3 +35,21 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+@app.route('/datamodel')
+def datamodel():
+    """Renders the about page."""
+    return render_template(
+        'datamodel.html',
+        title='Data Model',
+        year=datetime.now().year,
+    )
+
+@app.route('/register')
+def register():
+    """Renders the about page."""
+    return render_template(
+        'register.html',
+        title='Register',
+        year=datetime.now().year,
+    )
