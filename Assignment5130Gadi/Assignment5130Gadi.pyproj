@@ -28,6 +28,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assignment5130Gadi\Models\LocalDatabaseRoutines.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assignment5130Gadi\Models\QueryFormStructure.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="Assignment5130Gadi\__init__.py" />
     <Compile Include="Assignment5130Gadi\views.py" />
@@ -35,9 +41,11 @@
   <ItemGroup>
     <Folder Include="Assignment5130Gadi\" />
     <Folder Include="Assignment5130Gadi\imgs\" />
+    <Folder Include="Assignment5130Gadi\Models\" />
     <Folder Include="Assignment5130Gadi\static\" />
     <Folder Include="Assignment5130Gadi\static\content\" />
     <Folder Include="Assignment5130Gadi\static\fonts\" />
+    <Folder Include="Assignment5130Gadi\static\Data\" />
     <Folder Include="Assignment5130Gadi\static\scripts\" />
     <Folder Include="Assignment5130Gadi\templates\" />
   </ItemGroup>
@@ -46,7 +54,11 @@
     <Content Include="Assignment5130Gadi\imgs\Download-Michael-Jordan-Transparent-Background-For-Designing-Projects.png" />
     <Content Include="Assignment5130Gadi\imgs\NBA-logo.png" />
     <Content Include="Assignment5130Gadi\imgs\NBA_data_picture.png" />
+    <Content Include="Assignment5130Gadi\static\Data\users.csv">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Assignment5130Gadi\templates\datamodel.html" />
+    <Content Include="Assignment5130Gadi\templates\login.html" />
     <Content Include="Assignment5130Gadi\templates\register.html" />
     <Content Include="requirements.txt" />
     <Content Include="Assignment5130Gadi\static\content\bootstrap.css" />
