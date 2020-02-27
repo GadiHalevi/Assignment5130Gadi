@@ -36,6 +36,17 @@ from wtforms import ValidationError
 from Assignment5130Gadi.Models.QueryFormStructure import LoginFormStructure 
 from Assignment5130Gadi.Models.QueryFormStructure import UserRegistrationFormStructure 
 
+from flask_bootstrap import Bootstrap
+bootstrap = Bootstrap(app)
+
+from Assignment5130Gadi.Models.Forms import ExpandForm
+from Assignment5130Gadi.Models.Forms import CollapseForm
+
+
+
+db_Functions = create_LocalDatabaseServiceRoutines() 
+
+
 
 @app.route('/')
 @app.route('/home')
@@ -111,3 +122,85 @@ def Login():
         year=datetime.now().year,
         repository_name='Pandas',
         )
+
+@app.route('/data/data1' , methods = ['GET' , 'POST'])
+def data1():
+    """Renders the about page."""
+    form1 = ExpandForm()
+    form2 = CollapseForm()
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\Jordan.csv'))
+    raw_data_table = ''
+
+    if request.method == 'POST':
+        if request.form['action'] == 'Expand' and form1.validate_on_submit():
+            raw_data_table = df.to_html(classes = 'table table-hover')
+        if request.form['action'] == 'Collapse' and form2.validate_on_submit():
+            raw_data_table = ''
+
+    
+
+    return render_template(
+        'data1.html',
+        title='Data 1',
+        year=datetime.now().year,
+        message='My Data 1 page.',
+        raw_data_table = raw_data_table,
+        form1 = form1,
+        form2 = form2
+    )
+
+
+@app.route('/data/data2' , methods = ['GET' , 'POST'])
+def data2():
+    """Renders the about page."""
+    form1 = ExpandForm()
+    form2 = CollapseForm()
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\LeBron.csv'))
+    raw_data_table = ''
+
+    if request.method == 'POST':
+        if request.form['action'] == 'Expand' and form1.validate_on_submit():
+            raw_data_table = df.to_html(classes = 'table table-hover')
+        if request.form['action'] == 'Collapse' and form2.validate_on_submit():
+            raw_data_table = ''
+
+    
+
+    return render_template(
+        'data2.html',
+        title='Data 2',
+        year=datetime.now().year,
+        message='My Data 2 page.',
+        raw_data_table = raw_data_table,
+        form1 = form1,
+        form2 = form2
+    )
+
+
+@app.route('/data/data3' , methods = ['GET' , 'POST'])
+def data3():
+    """Renders the about page."""
+    form1 = ExpandForm()
+    form2 = CollapseForm()
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\Kobe.csv'))
+    raw_data_table = ''
+
+    if request.method == 'POST':
+        if request.form['action'] == 'Expand' and form1.validate_on_submit():
+            raw_data_table = df.to_html(classes = 'table table-hover')
+        if request.form['action'] == 'Collapse' and form2.validate_on_submit():
+            raw_data_table = ''
+
+    
+
+    return render_template(
+        'data3.html',
+        title='Data 3',
+        year=datetime.now().year,
+        message='My Data 3 page.',
+        raw_data_table = raw_data_table,
+        form1 = form1,
+        form2 = form2
+    )
+
+

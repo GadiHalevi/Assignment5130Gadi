@@ -1,11 +1,26 @@
-<!DOCTYPE html>
+﻿{% extends "layout.html" %}
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+{% block content %}
 
-</body>
-</html>
+<h2>My Data Model</h2>
+
+<div class="row my-grid-borders">
+    <p> In my project, I have used 3 different data sets, each including every game of either Michael Jordan's, LeBron James' or Kobe Bryant's careers. In each data set you can find data on details regarding the game played (date, location etc.) and statistics of the player from that game (Point, Rebounds, Assists and more).</p>
+</div>
+
+<div class="row my-grid-borders">
+    <div class="col-md-5 my-grid-borders"><a href="{{ url_for('data1') }}">Jordan Dataset</a></div>
+    <div class="col-md-5 my-grid-borders">Michael Jordan's career game log, includes 1251 games played (1072 regualer season, 179 playoffs).</div>
+</div>
+
+<div class="row my-grid-borders">
+    <div class="col-md-5 my-grid-borders"><a href="{{ url_for('data2') }}">LeBron Dataset</a></div>
+    <div class="col-md-5 my-grid-borders">LeBron James' career game log, includes 1437 games played (1198 regular season, 239 playoffs).</div>
+</div>
+
+<div class="row my-grid-borders">
+    <div class="col-md-5 my-grid-borders"><a href="{{ url_for('data3') }}">Kobe Dataset</a></div>
+    <div class="col-md-5 my-grid-borders">Kobe Bryant's career game log, includes 1566 games played (1346 regular season, 220 playoffs</div>
+</div>
+
+{% endblock %}
