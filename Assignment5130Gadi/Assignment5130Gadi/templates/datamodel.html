@@ -1,26 +1,91 @@
 ﻿{% extends "layout.html" %}
 
 {% block content %}
+<style>
+    a.button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    a.button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
 
+        a.button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    a.button:hover span {
+        padding-right: 25px;
+    }
+
+        a.button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+    a.button4 {
+        background-color: white;
+        color: black;
+        border: 2px solid #e7e7e7;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        text-decoration: none;
+        color: initial;
+    }
+
+        a.button4:hover {
+            background-color: #e7e7e7;
+        }
+</style>
 <h2>My Data Model</h2>
 
 <div class="row my-grid-borders">
     <p> In my project, I have used 3 different data sets, each including every game of either Michael Jordan's, LeBron James' or Kobe Bryant's careers. In each data set you can find data on details regarding the game played (date, location etc.) and statistics of the player from that game (Point, Rebounds, Assists and more).</p>
 </div>
-
+<br />
+<br />
 <div class="row my-grid-borders">
-    <div class="col-md-5 my-grid-borders"><a href="{{ url_for('data1') }}">Jordan Dataset</a></div>
-    <div class="col-md-5 my-grid-borders">Michael Jordan's career game log, includes 1251 games played (1072 regualer season, 179 playoffs).</div>
+    <div class="col-md-5 my-grid-borders">
+        <a href="{{ url_for('data1') }}" class="button button4"><span>Jordan Dataset</span></a>
+    </div>
+    <div class="col-md-5 my-grid-borders">
+        <h4>Michael Jordan's career game log, includes 1251 games played (1072 regualer season, 179 playoffs).</h4>
+    </div>
 </div>
-
+<br />
 <div class="row my-grid-borders">
-    <div class="col-md-5 my-grid-borders"><a href="{{ url_for('data2') }}">LeBron Dataset</a></div>
-    <div class="col-md-5 my-grid-borders">LeBron James' career game log, includes 1437 games played (1198 regular season, 239 playoffs).</div>
+    <div class="col-md-5 my-grid-borders">
+        <a href="{{ url_for('data2') }}" class="button button4"><span>LeBron Dataset</span></a>
+    </div>
+    <div class="col-md-5 my-grid-borders">
+        <h4>LeBron James' career game log, includes 1437 games played (1198 regular season, 239 playoffs).</h4>
+    </div>
 </div>
-
+<br />
 <div class="row my-grid-borders">
-    <div class="col-md-5 my-grid-borders"><a href="{{ url_for('data3') }}">Kobe Dataset</a></div>
-    <div class="col-md-5 my-grid-borders">Kobe Bryant's career game log, includes 1566 games played (1346 regular season, 220 playoffs</div>
+    <div class="col-md-5 my-grid-borders">
+        <a href="{{ url_for('data3') }}" class="button button4"><span>Kobe Dataset</span></a>
+    </div>
+    <div class="col-md-5 my-grid-borders">
+        <h4>Kobe Bryant's career game log, includes 1566 games played (1346 regular season, 220 playoffs</h4>
+    </div>
 </div>
 
 {% endblock %}

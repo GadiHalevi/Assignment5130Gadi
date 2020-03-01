@@ -46,6 +46,8 @@ from Assignment5130Gadi.Models.Forms import CollapseForm
 
 db_Functions = create_LocalDatabaseServiceRoutines() 
 
+app.config['SECRET_KEY'] = 'All You Need Is Love Ta ta ta ta ta'
+
 
 
 @app.route('/')
@@ -128,7 +130,7 @@ def data1():
     """Renders the about page."""
     form1 = ExpandForm()
     form2 = CollapseForm()
-    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\Jordan.csv'))
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static/data/Jordan.csv'))
     raw_data_table = ''
 
     if request.method == 'POST':
@@ -155,7 +157,7 @@ def data2():
     """Renders the about page."""
     form1 = ExpandForm()
     form2 = CollapseForm()
-    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\LeBron.csv'))
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static/data/LeBron.csv'))
     raw_data_table = ''
 
     if request.method == 'POST':
@@ -182,7 +184,7 @@ def data3():
     """Renders the about page."""
     form1 = ExpandForm()
     form2 = CollapseForm()
-    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\Kobe.csv'))
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static/data/Kobe.csv'))
     raw_data_table = ''
 
     if request.method == 'POST':
