@@ -114,7 +114,7 @@ def Login():
     if (request.method == 'POST' and form.validate()):
         if (db_Functions.IsLoginGood(form.username.data, form.password.data)):
             flash('Login approved!')
-            return redirect('/DataQuery')
+            return redirect("http://gadihalevi.pythonanywhere.com/DataQuery")
 
         else:
             flash('Error in - Username and/or password')
