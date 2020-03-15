@@ -114,6 +114,8 @@ def Login():
     if (request.method == 'POST' and form.validate()):
         if (db_Functions.IsLoginGood(form.username.data, form.password.data)):
             flash('Login approved!')
+            return redirect('/DataQuery')
+
         else:
             flash('Error in - Username and/or password')
    
@@ -203,6 +205,14 @@ def data3():
         raw_data_table = raw_data_table,
         form1 = form1,
         form2 = form2
+    )
+
+@app.route('/DataQuery')
+def DataQuery():
+    return render_template(
+        'DataQuery.html',
+        title='Data Query',
+        year=datetime.now().year,
     )
 
 

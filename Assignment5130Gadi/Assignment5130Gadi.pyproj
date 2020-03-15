@@ -67,6 +67,7 @@
     <Content Include="Assignment5130Gadi\templates\data2.html" />
     <Content Include="Assignment5130Gadi\templates\data3.html" />
     <Content Include="Assignment5130Gadi\templates\datamodel.html" />
+    <Content Include="Assignment5130Gadi\templates\DataQuery.html" />
     <Content Include="Assignment5130Gadi\templates\login.html" />
     <Content Include="Assignment5130Gadi\templates\register.html" />
     <Content Include="requirements.txt" />
