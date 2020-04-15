@@ -49,7 +49,7 @@
     <Folder Include="Assignment5130Gadi\static\content\" />
     <Folder Include="Assignment5130Gadi\static\fonts\" />
     <Folder Include="Assignment5130Gadi\static\Data\" />
-    <Folder Include="Assignment5130Gadi\static\content\scripts\" />
+    <Folder Include="Assignment5130Gadi\static\scripts\" />
     <Folder Include="Assignment5130Gadi\templates\" />
   </ItemGroup>
   <ItemGroup>
@@ -79,21 +79,21 @@
     <Content Include="Assignment5130Gadi\static\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Assignment5130Gadi\static\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Assignment5130Gadi\static\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\bootstrap.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\bootstrap.min.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery-1.10.2.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery-1.10.2.min.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery-1.10.2.min.map" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery.validate.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery.validate.min.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\modernizr-2.6.2.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\respond.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\respond.min.js" />
-    <Content Include="Assignment5130Gadi\static\content\scripts\_references.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\bootstrap.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\bootstrap.min.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery-1.10.2.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery-1.10.2.min.map" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery.validate.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery.validate.min.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\respond.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\respond.min.js" />
+    <Content Include="Assignment5130Gadi\static\scripts\_references.js" />
     <Content Include="Assignment5130Gadi\templates\about.html" />
     <Content Include="Assignment5130Gadi\templates\contact.html" />
     <Content Include="Assignment5130Gadi\templates\home.html" />
