@@ -2,7 +2,7 @@ from datetime import datetime
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms import Form, BooleanField, PasswordField
+from wtforms import Form, BooleanField, PasswordField, IntegerField
 from wtforms import TextField, TextAreaField, SelectField, DateField
 from wtforms import validators, ValidationError
 
@@ -20,3 +20,7 @@ class CollapseForm(FlaskForm):
 	submit2 = SubmitField('Collapse')
 	name="Collapse"
 	value="Collapse"
+
+class GamesPoints(FlaskForm):
+    points = IntegerField('Enter number of points:' , validators = [DataRequired] )
+    submit = SubmitField('submit')

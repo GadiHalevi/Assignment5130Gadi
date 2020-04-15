@@ -6,6 +6,8 @@ from datetime import datetime
 from flask import render_template
 from Assignment5130Gadi import app
 from Assignment5130Gadi.Models.LocalDatabaseRoutines import create_LocalDatabaseServiceRoutines
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
 
 
 from datetime import datetime
@@ -41,12 +43,20 @@ bootstrap = Bootstrap(app)
 
 from Assignment5130Gadi.Models.Forms import ExpandForm
 from Assignment5130Gadi.Models.Forms import CollapseForm
+from Assignment5130Gadi.Models.Forms import GamesPoints
 
 
 
 db_Functions = create_LocalDatabaseServiceRoutines() 
 
 app.config['SECRET_KEY'] = 'All You Need Is Love Ta ta ta ta ta'
+
+def plot_to_img(fig):
+    pngImage = io.BytesIO()
+    FigureCanvas(fig).print_png(pngImage)
+    pngImageB64String = "data:image/png;base64,"
+    pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')
+    return pngImageB64String
 
 
 
@@ -207,12 +217,57 @@ def data3():
         form2 = form2
     )
 
-@app.route('/DataQuery')
+@app.route('/DataQuery' , methods = ['GET' , 'POST'])
 def DataQuery():
+
+    print("Data Query")
+
+    form1 = GamesPoints()
+    chart = '/static/imgs/img.jpg'
+    message = ''
+
+   
+    Jordan = pd.read_csv(path.join(path.dirname(__file__), 'static/Data/Jordan.csv'))
+    Kobe = pd.read_csv(path.join(path.dirname(__file__), 'static/Data/Kobe.csv'))
+    LeBron = pd.read_csv(path.join(path.dirname(__file__), 'static/Data/LeBron.csv'))
+
+
+    if request.method == 'POST':
+        points = form1.points.data
+        
+        Games_with_points = Jordan[(Jordan['PTS'] >= points)].drop(['AST', 'TRB', 'MP', 'FG%', '3P%', 'FT%', 'STL', 'BLK', 'TOV', 'PF', 'G', 'Date', 'Tm', 'X', 'Opp', 'Result', 'GS', 'FG', 'FGA', '3P', '3PA', 'FT', 'FTA', 'ORB', 'DRB', 'GmSc', 'Player', 'RSorPO'], 1)
+        Jordan_Qualified_games = Games_with_points['PTS'].size
+        Jordan_Total = int(len(Jordan.index))
+    
+        Games_with_points = Kobe[(Kobe['PTS'] >= points)].drop(['AST', 'TRB', 'MP', 'FG%', '3P%', 'FT%', 'STL', 'BLK', 'TOV', 'PF', 'G', 'Date', 'Tm', 'X', 'Opp', 'Result', 'GS', 'FG', 'FGA', '3P', '3PA', 'FT', 'FTA', 'ORB', 'DRB', 'GmSc', 'Player', 'RSorPO'], 1)
+        Kobe_Qualified_games = Games_with_points['PTS'].size
+        Kobe_Total = int(len(Kobe.index))
+    
+
+        Games_with_points = LeBron[(LeBron['PTS'] >= points)].drop(['AST', 'TRB', 'MP', 'FG%', '3P%', 'FT%', 'STL', 'BLK', 'TOV', 'PF', 'G', 'Date', 'Tm', 'X', 'Opp', 'Result', 'GS', 'FG', 'FGA', '3P', '3PA', 'FT', 'FTA', 'ORB', 'DRB', 'GmSc', 'Player', 'RSorPO'], 1)
+        LeBron_Qualified_games = Games_with_points['PTS'].size
+        LeBron_Total = int(len(LeBron.index))
+    
+        qualified = [Jordan_Qualified_games, Kobe_Qualified_games, LeBron_Qualified_games]
+        total = [Jordan_Total, Kobe_Total, LeBron_Total]
+        index = ['Michael Jordan', 'Kobe Bryant', 'LeBron James']
+        df = pd.DataFrame({'Qualified Games': qualified,
+                            'Total Games': total}, index=index)
+        ax = df.plot.bar(rot=0)
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        fig.subplots_adjust(bottom=0.4)
+        df.plot(ax = ax , kind = 'bar', figsize = (24, 8) , fontsize = 22 , grid = True)
+        chart = plot_to_img(fig)
+
+        message = 'Michael Jordan had ' + str(Jordan_Qualified_games) + " " +  str(points) + ' point games, Kobe Bryant had ' + str(Kobe_Qualified_games) + " " + str(points) + ' point games and LeBron James had ' + str(LeBron_Qualified_games) + " " + str(points) + ' point games.'
+
+    
     return render_template(
         'DataQuery.html',
-        title='Data Query',
-        year=datetime.now().year,
+        form1 = form1,
+        chart = chart,
+        message = message
     )
 
 
