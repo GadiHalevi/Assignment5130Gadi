@@ -1,43 +1,123 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<style>
+    html
+    {
+        scroll-behavior: smooth;
+    }
+    a.button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
 
-    <div class="jumbotron">
-        <h1>NBA Legends Comparison</h1>
-        <h2>Data Science Project / Gadi Halevi</h2>
-        <p><a href="{{ url_for('about') }}" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        a.button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+            a.button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+        a.button:hover span {
+            padding-right: 25px;
+        }
+
+            a.button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+
+    a.button4 {
+        background-color: white;
+        color: black;
+        border: 2px solid #e7e7e7;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        text-decoration: none;
+        color: initial;
+    }
+
+        a.button4:hover {
+            background-color: #e7e7e7;
+        }
+</style>
+
+<div class="jumbotron">
+    <h1>NBA Legends Comparison</h1>
+    <h2>Data Science Project / Gadi Halevi</h2>
+    <a href="#My Project" class="button button4"><span>Learn More</span></a>
 
 
-    </div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>My Project</h2>
-        <p>
-            In my opinion, basketball is one of the best sports to watch and play, and throughout it's history it has produced many iconic and influential charchters we all know. Michael Jordan, LeBron James and Kobe Bryant are people who many consider to be the greatest ever at what they did, and have all become much more than just basketball players, but real world icons to everyone. For me as a big time NBA fan, it is always fun to compare these 3 legends, so I have decided to dedicate my Data Science Project for this comparison.
-        </p>
-        <img src="https://img.pngio.com/michael-jordan-dribbling-transparent-png-stickpng-hd-michael-jordan-png-384_384.png" height="400" width="400" />
-
-    </div>
-    <div class="col-md-4">
-        <h2>My sources</h2>
-        <p>
-            My source for this project was Basketball Reference. It is a
-            branch of a major statistical data base called Sports Reference, a site that offers regular and
-            advanced statistics for every major sport, and it's stats are accurate and valid even for games who
-            occured 60 years ago or even more.
-        </p>
-        <img src="https://www.nicepng.com/png/full/17-176678_lebron-james-cavaliers-lebron-james-picture-png.png" height="425" width="200"/>
-
-    </div>
-    <div class="col-md-4">
-        <h2>What am I asking?</h2>
-        <p>
-            My data sets are very in depth and offer countless questions I could ask, from comparing scoring numbers, through career highs to their year-by-year salaries. 
-        </p>
-        <img src="https://www.kindpng.com/picc/m/5-54109_kobe-bryant-scream-basketball-player-transparent-background-hd.png" width="400" height="400">
-
-    </div>
 </div>
 
-{% endblock %}
+    <div class="row">
+
+        <div class="col-md-6" id="My Project">
+            <br />
+            <br />
+            <br />
+
+            <h2>My Project</h2>
+            <p>
+                In my opinion, basketball is one of the best sports to watch and play, and throughout it's history it has produced many iconic and influential charchters we all know. Michael Jordan, LeBron James and Kobe Bryant are people who many consider to be the greatest ever at what they did, and have all become much more than just basketball players, but real world icons to everyone. For me as a big time NBA fan, it is always fun to compare these 3 legends, so I have decided to dedicate my Data Science Project for this comparison.
+            </p>
+            <a href="{{ url_for('about') }}" class="button button4"><span>About</span></a>
+        </div>
+        <div class="col-md-6">
+            <br />
+            <br />
+            <br />
+
+            <img src="https://img.pngio.com/michael-jordan-dribbling-transparent-png-stickpng-hd-michael-jordan-png-384_384.png" height="400" width="400" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://www.nicepng.com/png/full/17-176678_lebron-james-cavaliers-lebron-james-picture-png.png" height="425" width="200" />
+        </div>
+        <div class="col-md-6">
+            <h2>My sources</h2>
+            <p>
+                My source for this project was Basketball Reference. It is a
+                branch of a major statistical data base called Sports Reference, a site that offers regular and
+                advanced statistics for every major sport, and it's stats are accurate and valid even for games who
+                occured 60 years ago or even more.
+            </p>
+            <a href="{{ url_for('datamodel') }}" class="button button4"><span>Data Model</span></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2>What am I asking?</h2>
+            <p>
+                My data sets are very in depth and offer countless questions I could ask, from comparing scoring numbers, through career highs to their year-by-year salaries.
+            </p>
+            <a href="{{ url_for('DataQuery') }}" class="button button4"><span>Data Query</span></a>
+
+        </div>
+        <div class="col-md-6">
+            <img src="https://www.kindpng.com/picc/m/5-54109_kobe-bryant-scream-basketball-player-transparent-background-hd.png" width="400" height="400">
+        </div>
+    </div>
+
+    {% endblock %}
