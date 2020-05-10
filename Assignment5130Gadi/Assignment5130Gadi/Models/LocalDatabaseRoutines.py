@@ -26,6 +26,7 @@ class LocalDatabaseServiceRoutines(object):
         df = self.ReadCSVUsersDB()
         df = df.set_index('username')
         return (UserName in df.index.values)
+    #Checks if a Username exits already in the system.
 
 
     def IsLoginGood(self, UserName, Password):
@@ -36,6 +37,7 @@ class LocalDatabaseServiceRoutines(object):
 
         df = df.set_index('password')
         return (Password in df.index.values)
+    #Checks if the Username and the password the user has entered are correct.
      
 
     def AddNewUser(self, User):
@@ -44,4 +46,5 @@ class LocalDatabaseServiceRoutines(object):
         dfComplete = df.append(dfNew, ignore_index=True)
         self.WriteCSVToFile_users(dfComplete)
 
+    #Creates a new user in the system based on the user's input.
 

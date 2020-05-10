@@ -8,10 +8,13 @@ from wtforms import validators, ValidationError
 
 from wtforms.validators import DataRequired
 
+#imports for the forms.
+
 class LoginFormStructure(FlaskForm):
     username   = StringField('User name:  ' , validators = [DataRequired()])
     password   = PasswordField('Pass word:  ' , validators = [DataRequired()])
     submit = SubmitField('Submit')
+#Registers the user's inputs as 'username' and 'password', and creates a submit field.
 
 
 class UserRegistrationFormStructure(FlaskForm):
@@ -22,3 +25,5 @@ class UserRegistrationFormStructure(FlaskForm):
     username   = StringField('User name:  ' , validators = [DataRequired()])
     password   = PasswordField('Pass word:  ' , validators = [DataRequired()])
     submit = SubmitField('Submit')
+
+#Registers the user's inputs as 'FirstName', 'LastName', 'PhoneNum', 'EmailAddr', 'username' and 'password', and also creates a submit field.
