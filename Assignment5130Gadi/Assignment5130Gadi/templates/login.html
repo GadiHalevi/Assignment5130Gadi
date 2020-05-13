@@ -1,7 +1,60 @@
 ﻿{% extends "layout.html" %}
 
 {% block content %}
+<style>
+    a.button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
 
+        a.button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+            a.button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+
+        a.button:hover span {
+            padding-right: 25px;
+        }
+
+            a.button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+
+    a.button4 {
+        background-color: white;
+        color: black;
+        border: 2px solid #e7e7e7;
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        text-decoration: none;
+        color: initial;
+    }
+
+        a.button4:hover {
+            background-color: #e7e7e7;
+        }
+</style>
 <h2>{{ title }}</h2>
 
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -16,49 +69,31 @@
 <br />
 <br />
 <br />
+
 <form method=post>
     {{ form.csrf }}
     {{ form.csrf_token }}
-    <table>
-        <tr>
-            <td>
-                {{ form.username.label }}
-            </td>
-            <td>
-                {{ form.username }}
-            </td>
-            <td>
-                {% if form.username.errors %}
-                <ul class="text-danger">{% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}</ul>
-                {% endif %}
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {{ form.password.label }}
-            </td>
-            <td>
-                {{ form.password }}
-            </td>
-            <td>
-                {% if form.password.errors %}
-                <ul class="text-danger">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
-                {% endif %}
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <div class="input submit">
-                    <input type="submit" value="Login">
-                </div>
-            <td>
-            <td></td>
-        </tr>
-    </table>
+    <div class="form-group">
+        {{ form.username.label }}
+        {{ form.username(class_="form-control") }}
+        {% if form.username.errors %}
+        <ul class="text-danger">{% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(class_="form-control") }}
+        {% if form.password.errors %}
+        <ul class="text-danger">{% for error in form.password.errors %}<li>ss>{{ error }}</li>{% endfor %}</ul>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <input class="btn btn-warning" type="submit" value="Login">
+    </div>
 </form>
 <h2>
-    Don't have a user? <a href="{{ url_for('Register') }}">Register Here</a>
+    Don't have a user? <a href="{{ url_for('Register') }}" class="button button4">Register Here</a>
 </h2>
 
     {% endblock %}
