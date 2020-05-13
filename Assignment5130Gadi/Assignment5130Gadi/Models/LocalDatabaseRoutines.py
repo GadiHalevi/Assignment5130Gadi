@@ -14,13 +14,19 @@ class LocalDatabaseServiceRoutines(object):
         self.index = {}
         self.UsersDataFile = path.join(path.dirname(__file__), '..\\static\\Data\\users.csv')
 
+    #This is the building function for the whole class that is used to create 'login' and 'register'.
+
     def ReadCSVUsersDB(self):
         df = pd.read_csv(self.UsersDataFile)
         return df
+    #This function pulls out the users data and puts it in a DataFrame.
+
 
 
     def WriteCSVToFile_users(self, df):
         df.to_csv(self.UsersDataFile, index=False)
+
+    #This function converts data from a DataFrame back to the users file.
 
     def IsUserExist(self, UserName):
         df = self.ReadCSVUsersDB()
