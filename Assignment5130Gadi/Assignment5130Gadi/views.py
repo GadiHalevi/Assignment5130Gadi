@@ -109,8 +109,10 @@ def Register():
             db_Functions.AddNewUser(form)
             db_table = ""
             # Adds a new user to the system.
+            return redirect('login')
 
             flash('Thanks for registering new user - '+ form.FirstName.data + " " + form.LastName.data )
+
         else:
             flash('Error: User with this Username already exist ! - '+ form.username.data)
             form = UserRegistrationFormStructure(request.form)
@@ -158,9 +160,13 @@ def data1():
 
     if request.method == 'POST':
         if request.form['action'] == 'Expand' and form1.validate_on_submit():
+        #If the user clicks on 'Expand':
             raw_data_table = df.to_html(classes = 'table table-hover')
+            #The page now has a table matching the entire database.
         if request.form['action'] == 'Collapse' and form2.validate_on_submit():
+        #If the user clicks on 'Collapse':            
             raw_data_table = ''
+            #The table disappears.
 
     
 
@@ -174,6 +180,7 @@ def data1():
         form2 = form2
     )
 
+# A data page. This page showcases one of the projects databases, as do the pages 'data2' and 'data3'. It has a function that allows you to expand and collapse said database, as in "open and close" the table. It uses the forms 'ExpandForm' and 'CollapseForm'.
 
 
 @app.route('/data/data2' , methods = ['GET' , 'POST'])
@@ -186,15 +193,10 @@ def data2():
 
     if request.method == 'POST':
         if request.form['action'] == 'Expand' and form1.validate_on_submit():
-        #If the user clicks on 'Expand':
             raw_data_table = df.to_html(classes = 'table table-hover')
-            #The page now has a table matching the entire database.
         if request.form['action'] == 'Collapse' and form2.validate_on_submit():
-        #If the user clicks on 'Collapse':
             raw_data_table = ''
-            #The table disappears.
 
-    # A data page. This page showcases one of the projects databases, as do the pages 'data2' and 'data3'. It has a function that allows you to expand and collapse said database, as in "open and close" the table. It uses the forms 'ExpandForm' and 'CollapseForm'.
 
     return render_template(
         'data2.html',
